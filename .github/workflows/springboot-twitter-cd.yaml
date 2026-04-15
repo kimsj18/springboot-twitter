@@ -54,7 +54,7 @@ jobs:
             sudo docker run -d \
             --name springboot-twitter \
             -p 8080:8080 \
-            -e SPRING_DATASOURCE_URL=jdbc:mysql://${{ secrets.RDS_ENDPOINT}}:3306/twitterdb \
+            -e SPRING_DATASOURCE_URL=jdbc:mysql://${{ secrets.RDS_ENDPOINT }}:3306/twitterdb \
             -e SPRING_DATASOURCE_USERNAME=${{ secrets.RDS_USERNAME }} \
             -e SPRING_DATASOURCE_PASSWORD=${{ secrets.RDS_PASSWORD }} \
             ${{ secrets.DOCKER_HUB_USERNAME }}/springboot-twitter-linux:latest
