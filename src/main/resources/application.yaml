@@ -1,12 +1,15 @@
 spring:
-#  datasource:
-##    url: jdbc:h2:mem:testdb
-##    driver-class-name: org.h2.Driver
-##    username: sa
-##    password: ""
-#    url: jdbc:mysql://localhost:3306/twitterdb
-#    username: dev
-#    password: dev123
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+---
+spring.config.activate.on-profile: dev
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/twitterdb
+    username: dev
+    password: dev123
   jpa:
     hibernate:
       ddl-auto: update
@@ -15,3 +18,12 @@ spring:
 logging:
   level:
     org.hibernate.orm.jdbc.bind: trace
+
+---
+spring.config.activate.on-profile: prod
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
