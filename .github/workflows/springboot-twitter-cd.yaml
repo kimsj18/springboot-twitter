@@ -57,10 +57,9 @@ jobs:
             --comment "Deploy springboot-twitter via SSM" \
             --instance-ids "${{ secrets.EC2_INSTANCE_ID }}" \
             --parameters 'commands=[
-            linux:latest",
             "docker stop springboot-twitter || true",
             "docker rm springboot-twitter || true",
-            "docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/springboot-twitter-
+            "docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/springboot-twitter-linux:latest",
             "docker run -d \
               --name springboot-twitter \
               -p 8080:8080 \
